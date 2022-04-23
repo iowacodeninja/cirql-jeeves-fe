@@ -3,7 +3,7 @@ import './Navbar.css';
 function Navbar() {
   return (
     <header className="Navbar">
-      <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
           <div class="container-fluid">
           <a class="navbar-brand" href="#">Jeeves</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
