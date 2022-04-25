@@ -1,17 +1,13 @@
 // import logo from './logo.svg';
 import './Navbar.css';
-// import { Link } from 'react-router-dom';
-
-function getApparati(){
-  return ['Silks', 'Lyra', 'Trapeze', 'Sling', 'Rope'];
-}
+import SearchForm from './SearchForm';
+import { Link } from 'react-router-dom';
+const Apparatus = require('../models/Apparatus.js');
 
 function Navbar() {
-  const apparatii = getApparati();
-  const apparatusListItems = apparatii.map((apparatus) =>
+  const apparatusListItems = Apparatus.getAll().map((apparatus) =>
     <li>
-      {/* <Link className="dropdown-item" to="/moves/{apparatus}">{apparatus}</Link> */}
-      <a class="dropdown-item" to="/moves/lyra">{apparatus}</a>
+      <Link className="dropdown-item title-case" to={'moves/' + apparatus.toLowerCase()}>{apparatus}</Link>
     </li>
   );
   return (
@@ -25,23 +21,19 @@ function Navbar() {
           <div class="collapse navbar-collapse" id="navbarCollapse">
               <ul class="navbar-nav me-auto mb-2 mb-md-0">
               <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  <Link className="nav-link" to="/">Home</Link>
               </li>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Apparatus</a>
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Moves by Apparatus</a>
                 <ul class="dropdown-menu" aria-labelledby="dropdown01">
                   {apparatusListItems}
                 </ul>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="/search">Search</a>
-                  {/* <Link className="nav-link" to="/search">Search</Link> */}
+                  <Link className="nav-link" to="/search">Search</Link>
               </li>
               </ul>
-              <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"></input>
-              <button class="btn btn-outline-success" type="submit">Search</button>
-              </form>
+              <SearchForm />
           </div>
           </div>
       </nav>
