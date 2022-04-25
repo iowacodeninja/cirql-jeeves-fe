@@ -5,6 +5,8 @@ import Hero from './components/Hero'
 import List from './components/List'
 import './App.css';
 
+// TODO: figure out routing: https://reactrouter.com/docs/en/v6/getting-started/installation
+
 function App() {
   return (
     <div className="App">
