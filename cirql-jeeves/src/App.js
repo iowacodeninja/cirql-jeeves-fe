@@ -11,9 +11,6 @@ import {
   Link
 } from "react-router-dom";
 
-
-// TODO: figure out routing: https://reactrouter.com/docs/en/v6/getting-started/installation
-
 function App() {
   return (
     <div className="App">

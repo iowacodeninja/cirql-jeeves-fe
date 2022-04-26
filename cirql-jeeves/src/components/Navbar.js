@@ -29,9 +29,6 @@ function Navbar() {
                   {apparatusListItems}
                 </ul>
               </li>
-              <li class="nav-item">
-                  <Link className="nav-link" to="/search">Search</Link>
-              </li>
               </ul>
               <SearchForm />
           </div>

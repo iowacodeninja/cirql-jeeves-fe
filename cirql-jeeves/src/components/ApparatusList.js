@@ -1,23 +1,13 @@
-import './List.css';
+import './ApparatusList.css';
 import { Link } from 'react-router-dom';
-import silksThumb from '../img/silks.jpeg';
-import lyraThumb from '../img/lyra.jpeg';
-import trapThumb from '../img/trapeze.jpeg';
-import slingThumb from '../img/sling.jpeg';
 
 const Apparatus = require('../models/Apparatus.js');
-const ApparatusThumbs = {
-  silks: silksThumb,
-  lyra: lyraThumb,
-  trapeze: trapThumb,
-  sling: slingThumb
-};
 
 function ApparatusList() {
   const listItems = Apparatus.getAll().map((apparatus) =>
     <div class="col">
       <div class="card shadow-sm">
-        <Link to={'moves/' + apparatus.toLowerCase()} className={'apparatus ' + apparatus.toLowerCase()} style={{backgroundImage: 'url(' + ApparatusThumbs[apparatus.toLowerCase()] + ')'}}>
+        <Link to={'moves/' + apparatus.toLowerCase()} className={'apparatus ' + apparatus.toLowerCase()}>
           {apparatus}
         </Link>
         <div class="card-body">
