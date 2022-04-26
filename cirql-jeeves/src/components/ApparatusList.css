@@ -1,0 +1,24 @@
+.card .apparatus{
+    display: flex;
+    min-height: 225px;
+    background-color: rebeccapurple;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background-size: cover;
+    background-position: 50% 50%;
+    font-size: 0;
+}
+.card .apparatus.silks{
+    background-image: url(../img/silks.jpeg)
+}
+.card .apparatus.lyra{
+    background-image: url(../img/lyra.jpeg);
+    background-position: 0 0;
+}
+.card .apparatus.trapeze{
+    background-image: url(../img/trapeze.jpeg)
+}
+.card .apparatus.sling{
+    background-image: url(../img/sling.jpeg);
+}
