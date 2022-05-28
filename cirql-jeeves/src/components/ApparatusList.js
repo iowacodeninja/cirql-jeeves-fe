@@ -5,21 +5,21 @@ const Apparatus = require('../models/Apparatus.js');
 
 function ApparatusList() {
   const listItems = Apparatus.getAll().map((apparatus) =>
-    <div class="col">
-      <div class="card shadow-sm">
-        <Link to={'moves/' + apparatus.toLowerCase()} className={'apparatus ' + apparatus.toLowerCase()}>
+    <div className="col" key={apparatus.toLowerCase()}>
+      <div className="card shadow-sm">
+        <Link to={`moves/${apparatus.toLowerCase()}`} className={`apparatus ${apparatus.toLowerCase()}`}>
           {apparatus}
         </Link>
-        <div class="card-body">
-          <p class="card-text"><strong class="title-case">{apparatus}</strong></p>         
+        <div className="card-body">
+          <p className="card-text"><strong className="title-case">{apparatus}</strong></p>         
         </div>
       </div>
     </div>
   );
   return (
-    <div class="py-5">
-      <div class="container">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+    <div className="py-5">
+      <div className="container">
+        <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
           {listItems}
         </div>
       </div>

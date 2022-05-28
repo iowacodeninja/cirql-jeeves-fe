@@ -1,4 +1,5 @@
-.card .apparatus{
+/* Apparatus List */
+.card .apparatus, .card .move{
     display: flex;
     min-height: 225px;
     background-color: rebeccapurple;

@@ -2,10 +2,11 @@ import logo from './logo.svg';
 import Navbar from './components/Navbar'
 import Sidebar from './components/Sidebar'
 import Hero from './components/Hero'
-import Move from './components/Move'
+import MoveDetail from './components/MoveDetail'
 import MoveList from './components/MoveList'
 import ApparatusList from './components/ApparatusList'
 import SearchForm from './components/SearchForm'
+import SearchResults from './components/SearchResults'
 import './App.css';
 import {
   Routes,
@@ -18,17 +19,17 @@ function App() {
     <div className="App">
       <Navbar />
 
-      <div class="container-fluid mt-5">
+      <div className="container-fluid mt-5">
 
-        <div class="row">
+        <div className="row">
           <Sidebar />
 
-          <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">               
+          <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">               
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="search" element={<Search />} />
+              <Route path="search" element={<SearchResults />} />
               <Route path="moves/:apparatus" element={<MoveList />} />
-              <Route path="move/:apparatus/:name" element={<Move />} />
+              <Route path="move/:apparatus/:name" element={<MoveDetail />} />
             </Routes>
           </main>
         </div>
@@ -42,24 +43,13 @@ function Home() {
     <div id="home">
       <section>
         <Hero />
-        <div class="container">
+        <div className="container">
           <SearchForm />
         </div>
       </section>
       
-      <h2 class="visually-hidden">Select an Apparatus</h2>
+      <h2 className="visually-hidden">Select an Apparatus</h2>
       <ApparatusList />
-    </div>
-  )
-}
-
-function Search() {
-  return (
-    <div id="search">
-      <section>
-        <Hero />
-      </section>
-      <SearchForm />
     </div>
   )
 }
