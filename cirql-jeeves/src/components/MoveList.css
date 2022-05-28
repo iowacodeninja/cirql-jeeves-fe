@@ -1,0 +1,12 @@
+/* Move List */
+.move-tag, .move-link {
+    text-decoration: none;
+}
+.move-link:hover{
+    text-decoration: underline;
+}
+.move-tag.bg-info:hover{
+    background-color: #555 !important;
+    color: white !important;
+}
+
