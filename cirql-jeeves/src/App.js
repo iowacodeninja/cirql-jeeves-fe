@@ -2,6 +2,8 @@ import logo from './logo.svg';
 import Navbar from './components/Navbar'
 import Sidebar from './components/Sidebar'
 import Hero from './components/Hero'
+import Move from './components/Move'
+import MoveList from './components/MoveList'
 import ApparatusList from './components/ApparatusList'
 import SearchForm from './components/SearchForm'
 import './App.css';
@@ -25,7 +27,8 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="search" element={<Search />} />
-              {/* <Route path="moves" element={<Moves />} /> */}
+              <Route path="moves/:apparatus" element={<MoveList />} />
+              <Route path="move/:apparatus/:name" element={<Move />} />
             </Routes>
           </main>
         </div>
