@@ -1,8 +1,8 @@
 /* Move List */
-.move-tag, .move-link {
+.move-tag, .move-link, .apparatus-link {
     text-decoration: none;
 }
-.move-link:hover{
+.move-link:hover, .apparatus-link:hover{
     text-decoration: underline;
 }
 .move-tag.bg-info:hover{

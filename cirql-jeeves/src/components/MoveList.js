@@ -1,29 +1,32 @@
 import './MoveList.css';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 const Move = require('../models/Move.js');
 
 function MoveList() {
-  const listItems = Move.getAll().map((move) =>
-    <div className="col" key={move.id}>
-      <div className="card shadow-sm">
-        <Link to={`move/${move.id}/`} className={'move'} style={{backgroundImage: `url('${move.mediaLocation[0]}')`}}>
-          {move.name}
-        </Link>
-        <div className="card-body">
-          <h5 class="card-title title-case"> 
-            <Link to={`move/${move.id}/`} title={`View ${move.name} Details`} className="link-dark move-link">
-              {move.name}
-            </Link>
-          </h5>
-          <p className="card-text">
-            <Link to={`apparatus/${move.apparatus}/`} className={'badge bg-info text-dark move-tag'}>
-              {move.apparatus}
-            </Link>
-          </p>         
+  let params = useParams();
+  const listItems = Move.getByApparatus(params.apparatusId).map((move) => {
+    return (
+      <div className="col" key={move.id}>
+        <div className="card shadow-sm">
+          <Link to={`/move/${move.id}`} className='move' style={{backgroundImage: `url('${move.media[0].src}')`}}>
+            {move.name}
+          </Link>
+          <div className="card-body">
+            <h5 className="card-title title-case"> 
+              <Link to={`/move/${move.id}`} title={`View ${move.name} Details`} className="link-dark move-link">
+                {move.name}
+              </Link>
+            </h5>
+            <p className="card-text">
+              <Link to={`/moves/${move.apparatus.toLowerCase()}`} className={'badge bg-info move-tag title-case'}>
+                {move.apparatus}
+              </Link>
+            </p>         
+          </div>
         </div>
       </div>
-    </div>
+    )}
   );
   return (
     <div className="py-5">

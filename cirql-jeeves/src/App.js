@@ -1,9 +1,9 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import Navbar from './components/Navbar'
 import Sidebar from './components/Sidebar'
 import Hero from './components/Hero'
 import MoveDetail from './components/MoveDetail'
-import MoveList from './components/MoveList'
+import ApparatusMoves from './components/ApparatusMoves'
 import ApparatusList from './components/ApparatusList'
 import SearchForm from './components/SearchForm'
 import SearchResults from './components/SearchResults'
@@ -11,7 +11,7 @@ import './App.css';
 import {
   Routes,
   Route,
-  Link
+  useParams
 } from "react-router-dom";
 
 function App() {
@@ -27,9 +27,16 @@ function App() {
           <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">               
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="search" element={<SearchResults />} />
-              <Route path="moves/:apparatus" element={<MoveList />} />
-              <Route path="move/:apparatus/:name" element={<MoveDetail />} />
+              <Route path="search" element={<SearchResults />}>
+                <Route path=":query" element={<SearchResults />} />
+              </Route>
+              <Route path="moves">
+                <Route path=":apparatusId" element={<ApparatusMoves />}>                  
+                </Route>
+              </Route>
+              <Route path="move">
+                <Route path=":moveId" element={<MoveDetail />} />
+              </Route>
             </Routes>
           </main>
         </div>

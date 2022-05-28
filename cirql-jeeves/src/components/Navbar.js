@@ -14,7 +14,7 @@ function Navbar() {
     <header className="Navbar">
       <nav className="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
           <div className="container-fluid">
-          <a className="navbar-brand" href="#">Jeeves</a>
+          <Link to="/" className="navbar-brand">Jeeves</Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
           </button>

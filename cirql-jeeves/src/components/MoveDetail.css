@@ -1,1 +1,4 @@
 /* Move detail page */
+.move-media img.img-thumbnail{
+    max-width: 150px;
+}

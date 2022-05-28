@@ -11,7 +11,9 @@ function ApparatusList() {
           {apparatus}
         </Link>
         <div className="card-body">
-          <p className="card-text"><strong className="title-case">{apparatus}</strong></p>         
+          <h5 className="card-title title-case">
+            <Link to={`moves/${apparatus.toLowerCase()}`} className="link-dark apparatus-link">{apparatus}</Link>
+          </h5>         
         </div>
       </div>
     </div>
