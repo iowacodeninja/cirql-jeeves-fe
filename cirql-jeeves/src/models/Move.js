@@ -62,18 +62,18 @@ export function getAll(apparatus) {
         },
         { 
           type: 'image',
-          src: sailImage,
+          src: splitSilksImage,
           credits: [
-            { type: 'Aerialist', value: 'Carrie Herndon'},
+            { type: 'Aerialist', value: 'Rebecca Purnell'},
             { type: 'Photo', value: 'Danny Does Pix'},
             { type: 'Submitted by', value: 'Christa D'}
           ]
         },
         { 
           type: 'image',
-          src: sailImage,
+          src: dragonflyImage,
           credits: [
-            { type: 'Aerialist', value: 'Carrie Herndon'},
+            { type: 'Aerialist', value: 'Krystal Berger'},
             { type: 'Photo', value: 'Danny Does Pix'},
             { type: 'Submitted by', value: 'Christa D'}
           ]

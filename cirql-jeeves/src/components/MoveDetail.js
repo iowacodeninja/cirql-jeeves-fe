@@ -14,8 +14,23 @@ function MoveDetail() {
   const aliases = move.aliases.map((alias) =>
     <li key={alias}>{alias}</li>
   );
-  const thumbnails = move.media.map((img) =>
-    <img src={img.src} class="img-thumbnail me3" alt={`${move.name} (${move.apparatus})`} />
+  const carouselImages = move.media.map((img, ix) => 
+    <div className={`carousel-item item-${ix} ${(ix === 0) ? ' active' : ''}`} key={'img-'+ix}>
+      <figure className="figure">
+        <img src={img.src} className="d-block w-100" alt={`${move.name} (${move.apparatus})`} />
+      </figure>
+      <figcaption class="carousel-caption figure-caption d-none d-md-block">
+        {displayCredits(move.media[0].credits)}
+      </figcaption>
+    </div>
+  );
+  const carouselThumbs = move.media.map((img, ix) => 
+    <img 
+      src={img.src} 
+      className="img-thumbnail me3" 
+      data-bs-target="#carouselExampleFade" 
+      data-bs-slide-to={ix} 
+      alt={`${move.name} (${move.apparatus})`} />
   );
   
   return (
@@ -24,11 +39,22 @@ function MoveDetail() {
         <div className="row">
       
           <div className="col-md-6 move-media">
-            <figure class="figure">
-              <img className="img-fluid" src={move.media[0].src} alt={move.name} />
-              <figcaption class="figure-caption">{displayCredits(move.media[0].credits)}</figcaption>
-            </figure>
-            {thumbnails}
+            <div id="carouselExampleFade" className="carousel slide carousel-fade carousel-dark">
+              <div className="carousel-inner">
+                {carouselImages}
+              </div>
+              <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span className="visually-hidden">Previous</span>
+              </button>
+              <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                <span className="visually-hidden">Next</span>
+              </button>
+            </div>
+            <nav className="move-thumbnails">
+              {carouselThumbs}
+            </nav>
           </div>
       
           <div className="col-md-6">
