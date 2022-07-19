@@ -17,22 +17,26 @@ function MoveDetail() {
   const carouselImages = move.media.map((img, ix) => 
     <div className={`carousel-item item-${ix} ${(ix === 0) ? ' active' : ''}`} key={'img-'+ix}>
       <figure className="figure">
-        <img src={img.src} className="d-block w-100" alt={`${move.name} (${move.apparatus})`} />
+        <a href={img.src} target="_blank"><img src={img.src} className="d-block w-100" alt={`${move.name} (${move.apparatus})`} /></a>
       </figure>
-      <figcaption class="carousel-caption figure-caption d-none d-md-block">
-        {displayCredits(move.media[0].credits)}
-      </figcaption>
+      <div class="carousel-caption figure-caption d-none d-md-block">
+        <p>{displayCredits(img.credits)}</p>
+      </div>
     </div>
   );
   const carouselThumbs = move.media.map((img, ix) => 
-    <img 
+    <a href={img.src} target="_blank" data-bs-target="#carouselExampleFade"  data-bs-slide-to={ix}>
+      <img 
       src={img.src} 
       className="img-thumbnail me3" 
-      data-bs-target="#carouselExampleFade" 
-      data-bs-slide-to={ix} 
       alt={`${move.name} (${move.apparatus})`} />
+    </a>
   );
-  
+  let thumbnailNav = '';
+  if (move.media.length > 1) {
+    thumbnailNav = <nav className="move-thumbnails">{carouselThumbs}</nav>;
+  }
+
   return (
     <div className="py-5">
       <div className="container">
@@ -43,7 +47,7 @@ function MoveDetail() {
               <div className="carousel-inner">
                 {carouselImages}
               </div>
-              <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+              <button className={"carousel-control-prev"} type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
                 <span className="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span className="visually-hidden">Previous</span>
               </button>
@@ -52,9 +56,7 @@ function MoveDetail() {
                 <span className="visually-hidden">Next</span>
               </button>
             </div>
-            <nav className="move-thumbnails">
-              {carouselThumbs}
-            </nav>
+            {thumbnailNav}
           </div>
       
           <div className="col-md-6">

@@ -1,4 +1,8 @@
 /* Move detail page */
-.move-media img.img-thumbnail{
-    max-width: 150px;
+.move-thumbnails{
+    display: flex;
+}
+.move-thumbnails > *{
+    flex-basis: 150px; 
+    height: 200px;
 }
