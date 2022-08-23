@@ -5,7 +5,7 @@ const Move = require('../models/Move.js');
 
 function MoveList() {
   let params = useParams();
-  const listItems = Move.getByApparatus(params.apparatusId).map((move) => {
+  const listItems = Move.getByApparatus(params.apparatusId, params.moveId).map((move) => {
     return (
       <div className="col" key={move.id}>
         <div className="card shadow-sm">

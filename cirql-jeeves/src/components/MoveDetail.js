@@ -1,6 +1,7 @@
 import './MoveDetail.css';
 import { useParams, Link } from "react-router-dom";
 import MoveList from './MoveList'
+import cameraIcon from '../icons/camera.svg';
 const Move = require('../models/Move.js');
 
 function displayCredits(credits){
@@ -17,11 +18,12 @@ function MoveDetail() {
   const carouselImages = move.media.map((img, ix) => 
     <div className={`carousel-item item-${ix} ${(ix === 0) ? ' active' : ''}`} key={'img-'+ix}>
       <figure className="figure">
-        <a href={img.src} target="_blank"><img src={img.src} className="d-block w-100" alt={`${move.name} (${move.apparatus})`} /></a>
+        <a href={img.src} target="_blank"><img src={img.src} className="d-block w-100" alt={`${move.name} (${move.apparatus})`} />
+        <div class="carousel-caption figure-caption">
+          <p>{displayCredits(img.credits)}</p>
+        </div></a>
       </figure>
-      <div class="carousel-caption figure-caption d-none d-md-block">
-        <p>{displayCredits(img.credits)}</p>
-      </div>
+      
     </div>
   );
   const carouselThumbs = move.media.map((img, ix) => 
@@ -74,8 +76,8 @@ function MoveDetail() {
       
         </div>
       
-        {/* <h3 className="my-4">Other Sling Moves</h3>
-        <MoveList /> */}
+        <h3 className="my-4 title-case">Other {move.apparatus} Moves</h3>
+        <MoveList />
       
       </div>
     </div>

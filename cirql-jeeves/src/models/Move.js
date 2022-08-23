@@ -7,9 +7,9 @@ function makeId(str){
   return str.toLowerCase().replace(/[^a-z0-9]+/gi, '_').replace(/_+/g, '_');
 }
 
-export function getAll(apparatus) {
-  if (apparatus) {
-    return getByApparatus(apparatus);
+export function getAll(apparatusId, moveId) {
+  if (apparatusId) {
+    return getByApparatus(apparatusId);
   }
   const moves = [
     { 
@@ -100,7 +100,7 @@ export function getAll(apparatus) {
   for (const move of moves) {
     move.id = makeId(`${move.apparatus}_${move.name}`)
   }
-  return moves;
+  return moves.filter(move => move.id !== moveId);
 }
 
 export function getByApparatus(apparatus) {
